@@ -1,9 +1,5 @@
-from flask import Flask
-from flask.ext.sqlalchemy import SQLAlchemy
+from extensions import db
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
-db = SQLAlchemy(app)
 
 class EmailLead(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -11,10 +7,10 @@ class EmailLead(db.Model):
     email = db.Column(db.String(120), unique=True)
     contactFurther = db.Column(db.Boolean)
 
-    def __init__(self, username, email):
+    def __init__(self, username, email, contactFurther):
         self.username = username
         self.email = email
-        self.contact = contactFurther
+        self.contactFurther = contactFurther
 
     def __repr__(self):
-        return '<User %r>' % self.username
+        return '<User %r>' % self.email
