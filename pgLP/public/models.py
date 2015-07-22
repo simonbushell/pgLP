@@ -1,4 +1,4 @@
-from extensions import db
+from pgLP.extensions import db
 
 
 class EmailLead(db.Model):

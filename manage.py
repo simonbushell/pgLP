@@ -4,7 +4,7 @@ from flask.ext.script import Manager, Shell, Server, Command
 
 from pgLP.app import create_app
 from pgLP.settings import DevConfig, ProdConfig
-from pgLP.models import EmailLead
+from pgLP.public.models import EmailLead
 from pgLP.extensions import db
 
 if os.environ.get("PGLP_ENVIRONMENT") == 'prod':
