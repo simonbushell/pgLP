@@ -14,10 +14,12 @@ def create_app(config_object=ProdConfig):
     register_blueprints(app)
     return app
 
+
 def register_extensions(app):
     db.init_app(app)
     debug_toolbar.init_app(app)
     return None
+
 
 def register_blueprints(app):
     app.register_blueprint(public.views.blueprint)

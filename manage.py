@@ -14,10 +14,13 @@ else:
 
 manager = Manager(app)
 
+
 def _makecontext():
     return {'app': app, 'db': db, 'EmailLead': EmailLead}
 
+
 manager.add_command('shell', Shell(make_context=_makecontext))
+
 
 @manager.command
 def addLead(name, email, contact=True):
